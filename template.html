@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Performance Report: Nikhila Vutukuri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+        }
+        .report-container {
+            width: 95%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            margin-bottom: 40px; /* Space between charts */
+        }
+        .chart-box {
+            max-width: 800px; /* General width for charts */
+            margin: auto; /* Center the chart */
+            padding: 20px;
+            text-align: center;
+        }
+        #pie-chart {
+            display: block;
+            max-width: 100%; /* Responsive width */
+            height: 500px !important; /* Increased height specifically for the pie chart */
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h1>Candidate Performance Report: Nikhila Vutukuri</h1>
+        
+        <!-- Bar Chart -->
+        <div class="chart-container">
+            <div class="chart-box">
+                <canvas id="bar-chart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Pie Chart -->
+        <div class="chart-container">
+            <div class="chart-box">
+                <canvas id="pie-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Overall Assessment and Recommendations -->
+        <div class="overall-assessment">
+            <h2>Overall Assessment and Recommendations</h2>
+            <p>Nikhila Vutukuri presented a strong background in business analysis with substantial experience in the banking sector, showcasing her skills in SQL, data analysis, and project management tools like JIRA. Her communication skills are commendable, though there is room for improvement in clarity and structure when discussing technical topics. Nikhila's experience aligns well with the job requirements, but there are areas where she could better demonstrate her capabilities, particularly in innovation, learning agility, and adaptability. We recommend further exploration of her potential in these areas, possibly through a follow-up interview focusing on aspects of creativity, risk and compliance experience, and her approach to continuous learning and improvement.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Function to render bar chart
+        function renderBarChart() {
+            var ctx = document.getElementById('bar-chart').getContext('2d');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Industry-Specific Skills Match Score","Experience Relevance Score","Professional Attitude and Communication Score","Problem-Solving and Industry Knowledge Score","Learning Agility and Adaptability Score","Teamwork and Collaboration Score","Innovation and Creativity Score","Cultural and Organizational Fit Score","Attitude Towards Continuous Improvement Score",],
+                    datasets: [{
+                        label: 'Scores',
+                        data: [90,85,90,85,80,88,75,90,80,],
+                        backgroundColor: ["#3498db","#e74c3c","#2ecc71","#f1c40f","#9b59b6","#34495e","#1abc9c","#e67e22","#95a5a6",],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Function to render pie chart
+        function renderPieChart() {
+            var ctx = document.getElementById('pie-chart').getContext('2d');
+            var pieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ["Industry-Specific Skills Match Score","Experience Relevance Score","Professional Attitude and Communication Score","Problem-Solving and Industry Knowledge Score","Learning Agility and Adaptability Score","Teamwork and Collaboration Score","Innovation and Creativity Score","Cultural and Organizational Fit Score","Attitude Towards Continuous Improvement Score",],
+                    datasets: [{
+                        data: [90,85,90,85,80,88,75,90,80,],
+                        backgroundColor: ["#3498db","#e74c3c","#2ecc71","#f1c40f","#9b59b6","#34495e","#1abc9c","#e67e22","#95a5a6",],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                }
+            });
+        }
+
+        // Render the charts
+        renderBarChart();
+        renderPieChart();
+    </script>
+</body>
+</html>
